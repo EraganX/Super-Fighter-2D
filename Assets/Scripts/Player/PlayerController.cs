@@ -4,11 +4,15 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private float _moveSpeed = 3.5f;
+    [SerializeField] private float
+        _moveSpeed = 3.5f,
+        _minBoundaryX = -12f,
+        _maxBoundaryX = 12f, 
+        _minBoundaryY = -6.10f, 
+        _maxBoundaryY = 6.15f;
 
     private float _verticalInput, _horizontalInput;
     private Vector3 _tempPosition;
-
     private Animator _animator;
 
     public bool _isDead = false;
@@ -20,6 +24,8 @@ public class PlayerController : MonoBehaviour
     {
         _animator = GetComponent<Animator>();
         _rb = GetComponent<Rigidbody2D>();
+        _tempPosition= new Vector3(-12,0,0);
+
     }
 
     private void Update()
@@ -75,9 +81,31 @@ public class PlayerController : MonoBehaviour
     {
         _verticalInput = Input.GetAxis(TagsManager.VERTICAL_INPUT);
         _horizontalInput = Input.GetAxis(TagsManager.HORIZONTAL_INPUT);
-        transform.position = _tempPosition;
+        
         _tempPosition.y += _verticalInput * _moveSpeed * Time.deltaTime;
         _tempPosition.x += _horizontalInput * _moveSpeed * Time.deltaTime;
+
+        transform.position = _tempPosition;
+
+        if (_tempPosition.x <= _minBoundaryX)
+        {
+            _tempPosition.x = _minBoundaryX;
+        }
+
+        if (_tempPosition.x >= _maxBoundaryX)
+        {
+            _tempPosition.x = _maxBoundaryX;
+        }
+
+        if (_tempPosition.y <= _minBoundaryY)
+        {
+            _tempPosition.y = _minBoundaryY;
+        }
+
+        if (_tempPosition.y >= _maxBoundaryY)
+        {
+            _tempPosition.y = _maxBoundaryY;
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
