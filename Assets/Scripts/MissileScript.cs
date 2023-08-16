@@ -17,6 +17,7 @@ public class MissileScript : MonoBehaviour
     private void Update()
     {
         MissileDirection();
+ 
     }
 
     private void MissileDirection()
@@ -36,9 +37,8 @@ public class MissileScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Destroy"))
+        if (collision.gameObject.CompareTag(TagsManager.REMOVE_CLONES_TAG))
         {
-            Debug.Log("Trigger");
             Destroy(gameObject);
         }
     }

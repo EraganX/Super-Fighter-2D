@@ -8,6 +8,8 @@ TagManager:
   - ItemDestroyer
   - EnemyPlane
   - Destroy
+  - Missiles
+  - Bullets
   layers:
   - Default
   - TransparentFX
