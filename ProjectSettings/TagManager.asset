@@ -10,6 +10,7 @@ TagManager:
   - Destroy
   - Missiles
   - Bullets
+  - Bomb
   layers:
   - Default
   - TransparentFX

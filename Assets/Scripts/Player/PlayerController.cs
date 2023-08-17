@@ -5,7 +5,12 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private GameObject _bullets;
+    [SerializeField] private GameObject _bomb;
+    [SerializeField] private AudioClip _explotionAudio,_fireClip, _dropBomb;
+    [SerializeField] private AudioSource _destroySC,_shootSC;
     [SerializeField] private float
+        _Firerate = 0.1f,
+        _bombDPS = 3f,
         _moveSpeed = 3.5f,
         _minBoundaryX = -12f,
         _maxBoundaryX = 12f, 
@@ -20,13 +25,17 @@ public class PlayerController : MonoBehaviour
     public bool _isDead = false;
     public bool _isGrounded = false;
 
+    private float _lastBombDropTime;
+    private float _lastfireTime;
+
 
     private void Awake()
     {
         _animator = GetComponent<Animator>();
         _rb = GetComponent<Rigidbody2D>();
         _tempPosition= new Vector3(-12,0,0);
-
+        _lastBombDropTime = Time.time;
+        _lastfireTime = Time.time;
     }//awake
 
     private void Update()
@@ -36,7 +45,7 @@ public class PlayerController : MonoBehaviour
             if (_isGrounded)
             {
                 _animator.SetTrigger(TagsManager.PLAYER_DESTROY_ANIMETION_PARAM); //player destroy animation
-
+                Destroy(gameObject,1f);
             }
             else
             {
@@ -50,16 +59,25 @@ public class PlayerController : MonoBehaviour
             PlaneMove();
             PlaneRotation();
 
-            if (Input.GetButtonDown(TagsManager.FIRE_INPUT) || Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetButton(TagsManager.FIRE_INPUT) && (Time.time - _lastfireTime)>_Firerate)
             {
+
+                _shootSC.PlayOneShot(_fireClip);
                 _animator.SetTrigger(TagsManager.PLAYER_SHOOT_ANIMETION_PARAM); //player shoot animation
                 Instantiate(_bullets,_tempPosition,Quaternion.identity);
+                _lastfireTime = Time.time;
+            }
+
+            if (Input.GetKeyDown(KeyCode.Space) && (Time.time-_lastBombDropTime)>_bombDPS)
+            {
+                _shootSC.PlayOneShot(_dropBomb);
+                Instantiate(_bomb, _tempPosition, Quaternion.identity);
+                _lastBombDropTime = Time.time;
             }
 
             _animator.SetTrigger(TagsManager.PLAYER_FLY_ANIMETION_PARAM); //player fly animation
-
         }
-
+        
     }//update
 
     private void PlaneRotation()
@@ -80,6 +98,8 @@ public class PlayerController : MonoBehaviour
 
     private void PlaneMove()
     {
+
+
         _verticalInput = Input.GetAxis(TagsManager.VERTICAL_INPUT);
         _horizontalInput = Input.GetAxis(TagsManager.HORIZONTAL_INPUT);
 
@@ -114,13 +134,6 @@ public class PlayerController : MonoBehaviour
         }
     }//limit the player movement
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.transform.tag==TagsManager.GROUND_TAG && _isDead)
-        {
-            _isGrounded = true;
-        }//Destroy player when hit the ground
-    }//collition enter
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -131,7 +144,16 @@ public class PlayerController : MonoBehaviour
             {
                 Destroy(collision.gameObject);
             }
+            _destroySC.PlayOneShot(_explotionAudio);
             _isDead = true;
+
         }//Missile or Enemy plane hit
+
+        if (collision.transform.tag == TagsManager.REMOVE_CLONES_TAG && _isDead)
+        {
+            _destroySC.PlayOneShot(_explotionAudio);
+            _isGrounded = true;
+        }//Destroy player when hit the ground
+
     }//trigger enter
 }
