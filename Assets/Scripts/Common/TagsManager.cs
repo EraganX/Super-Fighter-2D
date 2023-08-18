@@ -12,6 +12,8 @@ public static class TagsManager
     public static string PLAYER_DESTROY_ANIMETION_PARAM = "Grounded";
     public static string PLAYER_DEAD_ANIMETION_PARAM = "isDead";
     public static string ENEMY_DESTROY_ANIMATION = "destroy";
+    public static string ENEMY_DESTROY_TANK_ANIMATION = "Boom";
+    public static string BOMB_EXPLOTION_ANIMATION = "explotion";
 
 
     // TAGS
@@ -21,4 +23,6 @@ public static class TagsManager
     public static string ENEMY_MISSILE_TAG = "Missiles";
     public static string GROUND_TAG = "Ground";
     public static string REMOVE_CLONES_TAG = "Destroy";
+    public static string BOMB_TAG = "Bomb";
+    public static string TANK_RICH_MARK_TAG = "Mark";
 }

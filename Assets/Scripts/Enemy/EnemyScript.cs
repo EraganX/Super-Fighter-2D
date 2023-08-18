@@ -12,15 +12,14 @@ public class EnemyScript : MonoBehaviour
     [SerializeField] private float _maxHealth = 3f;
     [SerializeField] private float _stopPositionX = 12f;
     [SerializeField] private GameObject _missile;
-    [SerializeField] private HealthBar _healthBar;
-
+    [SerializeField] private ProgressBar _healthBar;
 
     private Vector3 _tempPosition;
-    private bool _isLaunchedMissile = false;
     private Animator _animator;
-    private bool _isDead =  false;
+    private float _currentHealth;
+    private bool _isDead = false;
+    private bool _isLaunchedMissile = false;
 
-    float _currentHealth;
 
     private void Start()
     {
@@ -29,7 +28,7 @@ public class EnemyScript : MonoBehaviour
         _tempPosition = transform.position;
         _animator = GetComponent<Animator>();   
 
-        _healthBar = GetComponentInChildren<HealthBar>();
+        _healthBar = GetComponentInChildren<ProgressBar>();
         _healthBar.UpdateHealthBar(_maxHealth, _currentHealth);
 
     }

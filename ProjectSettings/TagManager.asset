@@ -11,6 +11,8 @@ TagManager:
   - Missiles
   - Bullets
   - Bomb
+  - Tank
+  - Mark
   layers:
   - Default
   - TransparentFX

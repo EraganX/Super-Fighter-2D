@@ -8,6 +8,8 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] AudioClip audioClip;
     [SerializeField] AudioSource audioSource;
 
+    public bool _isPlaying;
+
     private void Awake()
     {
         _GamePlay.SetActive(true);
@@ -16,21 +18,20 @@ public class PauseMenu : MonoBehaviour
 
     public void LoadPauseMenu()
     {
+        _isPlaying = false;
         audioSource.PlayOneShot(audioClip);
         Invoke("ActivePauseMenu", 0.1f);
-
     }
 
     public void GameWindow()
     {
         audioSource.PlayOneShot(audioClip);
-        Time.timeScale = 1f;
+        _isPlaying = true;
         Invoke("ActiveGameWindow", 0.1f);
     }
 
     private void ActivePauseMenu()
     {
-        Time.timeScale = 0f;
         _pauseMenu.SetActive(true);
         _GamePlay.SetActive(false);
     }

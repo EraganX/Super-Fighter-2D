@@ -9,6 +9,18 @@ EditorBuildSettings:
     path: Assets/_Scenes/MainMenu.unity
     guid: 80fa9e0e06ff395489a93eb2b464af56
   - enabled: 1
-    path: Assets/_Scenes/Gameplay.unity
-    guid: 8c9cfa26abfee488c85f1582747f6a02
+    path: Assets/_Scenes/Mission_Failed.unity
+    guid: 097f8dc40dd188b429353231ff2e760e
+  - enabled: 1
+    path: Assets/_Scenes/Level_01.unity
+    guid: c30467fc446fed04e8d11988ca18d8ea
+  - enabled: 1
+    path: Assets/_Scenes/Level_02.unity
+    guid: 7b7dcade56e9f9548b4946e2940d1cca
+  - enabled: 1
+    path: Assets/_Scenes/Level_03.unity
+    guid: ed950ca85dc7db848a472cd873593bb1
+  - enabled: 1
+    path: Assets/_Scenes/Level_Final.unity
+    guid: 31019f9f9cbade542a30cda4a1cb1ab6
   m_configObjects: {}

@@ -44,26 +44,25 @@ public class PlayerController : MonoBehaviour
         {
             if (_isGrounded)
             {
-                _animator.SetTrigger(TagsManager.PLAYER_DESTROY_ANIMETION_PARAM); //player destroy animation
+                _animator.SetTrigger(TagsManager.PLAYER_DESTROY_ANIMETION_PARAM); //_player destroy animation
                 Destroy(gameObject,1f);
             }
             else
             {
-                _animator.SetBool(TagsManager.PLAYER_DEAD_ANIMETION_PARAM, true); //player hit  animation
+                _animator.SetBool(TagsManager.PLAYER_DEAD_ANIMETION_PARAM, true); //_player hit  animation
                 _rb.gravityScale = 1f;
                 transform.localEulerAngles = new Vector3(0,0,-40);
             }
-        }//player dead
+        }//_player dead
         else
         {
             PlaneMove();
             PlaneRotation();
-
             if (Input.GetButton(TagsManager.FIRE_INPUT) && (Time.time - _lastfireTime)>_Firerate)
             {
 
                 _shootSC.PlayOneShot(_fireClip);
-                _animator.SetTrigger(TagsManager.PLAYER_SHOOT_ANIMETION_PARAM); //player shoot animation
+                _animator.SetTrigger(TagsManager.PLAYER_SHOOT_ANIMETION_PARAM); //_player shoot animation
                 Instantiate(_bullets,_tempPosition,Quaternion.identity);
                 _lastfireTime = Time.time;
             }
@@ -75,7 +74,7 @@ public class PlayerController : MonoBehaviour
                 _lastBombDropTime = Time.time;
             }
 
-            _animator.SetTrigger(TagsManager.PLAYER_FLY_ANIMETION_PARAM); //player fly animation
+            _animator.SetTrigger(TagsManager.PLAYER_FLY_ANIMETION_PARAM); //_player fly animation
         }
         
     }//update
@@ -109,7 +108,7 @@ public class PlayerController : MonoBehaviour
         transform.position = _tempPosition;
 
         PlayerBoundaries();
-    }//Movement of the player
+    }//Movement of the _player
 
     private void PlayerBoundaries()
     {
@@ -132,7 +131,7 @@ public class PlayerController : MonoBehaviour
         {
             _tempPosition.y = _maxBoundaryY;
         }
-    }//limit the player movement
+    }//limit the _player movement
 
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -153,7 +152,6 @@ public class PlayerController : MonoBehaviour
         {
             _destroySC.PlayOneShot(_explotionAudio);
             _isGrounded = true;
-        }//Destroy player when hit the ground
-
+        }//Destroy _player when hit the ground
     }//trigger enter
 }

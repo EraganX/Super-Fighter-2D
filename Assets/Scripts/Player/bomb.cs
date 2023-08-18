@@ -31,7 +31,7 @@ public class bomb : MonoBehaviour
     {
         if (collision.gameObject.CompareTag(TagsManager.REMOVE_CLONES_TAG))
         {
-            _animator.SetTrigger("explotion");
+            _animator.SetTrigger(TagsManager.BOMB_EXPLOTION_ANIMATION);
             Destroy(gameObject,0.5f);
         }
     }
