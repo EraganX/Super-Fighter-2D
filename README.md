@@ -1,5 +1,5 @@
 # Super-Plane-2D
-My first game was created for CSGD game jam.
+Game was created for CSGD game jam.
 
 https://eraganx.itch.io/super-fighter-2d
 
