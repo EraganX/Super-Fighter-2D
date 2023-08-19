@@ -1,4 +1,4 @@
-# Super-Plane-2D
+# Super-Fighter-2D
 Game was created for CSGD game jam.
 
 https://eraganx.itch.io/super-fighter-2d
