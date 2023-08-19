@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class SceneManagerScript : MonoBehaviour
 {
     [SerializeField] AudioClip audioClip;
-    [SerializeField] AudioSource audioSource;
+    [SerializeField] AudioSource audioSource,_bgAudio;
 
     
 
@@ -34,6 +34,7 @@ public class SceneManagerScript : MonoBehaviour
 
     public void Level1()
     {
+        _bgAudio.Play();
         Time.timeScale = 1f;
         audioSource.PlayOneShot(audioClip);
         Invoke("LevelScene1", 0.1f);
@@ -41,6 +42,7 @@ public class SceneManagerScript : MonoBehaviour
 
     public void Level2()
     {
+        _bgAudio.Play();
         Time.timeScale = 1f;
         audioSource.PlayOneShot(audioClip);
         Invoke("LevelScene2", 0.1f);
@@ -48,6 +50,7 @@ public class SceneManagerScript : MonoBehaviour
 
     public void Level3()
     {
+        _bgAudio.Play();
         Time.timeScale = 1f;
         audioSource.PlayOneShot(audioClip);
         Invoke("LevelScene3", 0.1f);
@@ -55,12 +58,23 @@ public class SceneManagerScript : MonoBehaviour
 
     public void FinalLevel()
     {
+        _bgAudio.Play();
         Time.timeScale = 1f;
         audioSource.PlayOneShot(audioClip);
         Invoke("LevelSceneFinal", 0.1f);
     }
 
+    public void PlayIntro()
+    {
+        Time.timeScale = 1f;
+        audioSource.PlayOneShot(audioClip);
+        Invoke("PlayIntroVideo", 0.1f);
+    }
 
+    private void PlayIntroVideo()
+    {
+        SceneManager.LoadScene("Intro");
+    }
 
 
 

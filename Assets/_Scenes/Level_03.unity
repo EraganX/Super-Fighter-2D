@@ -251,6 +251,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioClip: {fileID: 8300000, guid: edf60ccc4180e3642bbae71ad9c1a615, type: 3}
   audioSource: {fileID: 6946196}
+  _bgAudio: {fileID: 1928077866}
 --- !u!4 &6946198
 Transform:
   m_ObjectHideFlags: 0
@@ -3661,8 +3662,8 @@ MonoBehaviour:
   level: 3
   tankDestroyed: 0
   _Win: {fileID: 8300000, guid: 43bd52697fc4f8240887e3b93eb301fe, type: 3}
-  _missionCompleted: {fileID: 8300000, guid: f93f6f702d8bc9b45a590d12e353dc7c, type: 3}
   _Winsrc: {fileID: 1317902708}
+  _bgAudio: {fileID: 1928077866}
   _count: {fileID: 1913196886}
   _player: {fileID: 1974046713}
   _nextLevel: {fileID: 1155962150}

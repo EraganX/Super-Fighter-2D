@@ -1116,6 +1116,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioClip: {fileID: 8300000, guid: edf60ccc4180e3642bbae71ad9c1a615, type: 3}
   audioSource: {fileID: 629596328}
+  _bgAudio: {fileID: 0}
 --- !u!4 &629596327
 Transform:
   m_ObjectHideFlags: 0
@@ -1919,20 +1920,19 @@ MonoBehaviour:
     Use your mouse to aim and shoot at enemy planes.
 
 
-
     Use
-    the WASD or arrow keys to move your plane.
+    the W A S D or arrow keys to move your plane.
 
 
-    Avoid enemy missiles and planes.
+    Avoid enemy missiles and
+    planes.
 
 
-    Drop
-    bombs on the enemy tank to destroy it.
+    Drop bombs on the enemy tank to destroy it.
 
 
-    The game is over if the enemy tank
-    reaches the boundary.'
+    The game is over
+    if the enemy tank reaches the boundary.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2677,9 +2677,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: "[ CREDITS ]\n\r\nGame Design, Planning, Level Design, Animation:\r \nCharith
     Eranga\n\nArt Assets:\r \nGameDevMarket\n(https://www.gamedevmarket.net/)\r\nCharith
-    Eranga (UI Elements)\r\n\r\nSound Effects:\r\nFreesound.org\n(https://freesound.org/)\r\n\r\nSpecial
-    Thanks:\r\nCeylone School of Game Design\n\r\n\nThank you for playing!\r\n\r\n[SUPER
-    FIGHTER]"
+    Eranga (UI Elements)\r\n\r\nSound Effects:\r\nFreesound.org\n(https://freesound.org/)\r\n\nAI:\nWepic
+    - image generator\n(https://wepik.com)\n\r\nSpecial Thanks:\r\nCeylone School
+    of Game Design\n\r\n\nThank you for playing!\r\n\r\n[SUPER FIGHTER]"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2706,8 +2706,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 30
+  m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -3487,7 +3487,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 629596326}
         m_TargetAssemblyTypeName: SceneManagerScript, Assembly-CSharp
-        m_MethodName: Level1
+        m_MethodName: PlayIntro
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

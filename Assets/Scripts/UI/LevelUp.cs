@@ -10,8 +10,8 @@ public class LevelUp : MonoBehaviour
     public int level;
     public int tankDestroyed=0;
 
-    [SerializeField] AudioClip _Win,_missionCompleted;
-    [SerializeField] AudioSource _Winsrc;
+    [SerializeField] AudioClip _Win;
+    [SerializeField] AudioSource _Winsrc,_bgAudio;
     [SerializeField] TMP_Text _count;
     [SerializeField] GameObject _player, _nextLevel,_gamePlaymenu,_pauseMenu, _mark, _PauseSc;
 
@@ -43,6 +43,8 @@ public class LevelUp : MonoBehaviour
                 _gamePlaymenu.SetActive(false);
                 _pauseMenu.SetActive(false);
                 _nextLevel.SetActive(true);
+
+                _bgAudio.Stop();
             }
 
             _remainTanks = (level - tankDestroyed).ToString();
